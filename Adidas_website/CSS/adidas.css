@@ -1,0 +1,164 @@
+*{
+    padding:0;
+    margin:0;
+    /*box-sizing: border-box;*/
+}
+body{
+    background: linear-gradient(#111,#222);/*linear-gradient: add to color with each other*/
+    height: 100vh;/*100vh: mean height of all screen*/
+    width:100%;
+    display: flex;
+    justify-content: center; /*make content in the center in x-axis*/
+    align-items: center; /*make content in the center in y-axis*/
+}
+/*NOTE:
+if you want to make element in the center go to the parent of it
+ex: like display:flex , justify-content:center in the body that make the class container in the center
+*/
+body::after{
+    content: '';
+    width:100%;
+    height:100%;
+    background-color: red;
+    position: absolute;
+    clip-path: circle(40% at right 70%);/*clip-path to draw any shape*/
+    z-index: -1;/* to put circle under container*/
+    
+}
+
+.container{
+    width:80%;
+    height:80%;/*80% from 100vh*/
+    background-color: rgba(255,255,255,0.1); /*rgba(255,255,255) that for white color, 0.1 the to get the heighest degree of color*/
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width:80%;
+    margin: auto;/*to make element in center*/
+    padding:20px 0;
+}
+
+.logo{
+    text-decoration: none;
+    color:white;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-left: 130px;
+}
+span{
+    color:red;
+}
+nav ul li{
+    display: inline-block;
+    margin:0;
+}
+nav ul li a{
+    text-decoration: none;
+    color:white;
+    padding:0 20px;
+    font-size: 27px;
+    font-weight: 600;
+    transition: 0.4s;
+
+}
+nav ul li a:hover{
+    color:red;
+}
+.special:hover{
+    color:white
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width:80%;
+    margin:auto;
+}
+.content .txt{
+    color:white;
+    width:40%;
+}
+.content .txt h1{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.content .txt p{
+    font-size: 18px;
+    letter-spacing: 2px;
+    line-height: 25px;
+    margin:10px 0;
+}
+
+.content .img{
+    width:40%;
+}
+.content .img img{
+    width:400px;
+}
+
+/*For responsive website*/
+@media (min-width:750px) and (max-width:1150px) {
+    .container .logo{
+        font-size: 25px;
+        font-weight: 500;
+    }
+    .container ul li a{
+        font-size: 17px;
+        font-weight: 400;
+        padding:12px;
+    }
+    .content .txt h1{
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .content .txt p{
+        font-size: 13px;
+    }
+    .content .img img{
+        width:300px;
+    }
+}
+@media (min-width:200px) and (max-width:700px) {
+    .container .logo{
+        font-size: 12px;
+        font-weight: 200;
+        letter-spacing: 1px;
+    }
+    .container ul li a{
+        font-size: 10px;
+        font-weight: 200;
+        padding:0px; 
+        font-weight: 200;
+    }
+    .content .txt h1{
+        font-size: 12px;
+        font-weight: 200;
+    }
+    .content .txt p{
+        font-size: 9px;
+    }
+    .content .img img{
+        width:150px;
+    }
+    .content nav{
+        flex-direction: column;
+        justify-content: center;
+        width:50%;
+    }
+    .content .txt, .content .img img{
+        width:80%;
+    }
+}
